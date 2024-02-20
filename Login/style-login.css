@@ -1,25 +1,29 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
 a {
+    font-family: sans-serif;
     text-decoration: none;
-    font-family:sans-serif;
 }
 
-header {
-    background-color:  rgb(160, 151, 151);
+.header {
+    background: rgb(160, 151, 151);
     padding-inline: 16px;
+    position: relative;
+    z-index: 2;
 }
 
-nav {
+.nav {
     max-width: 1280px;
     height: 70px;
     margin-inline: auto;
-    display:flex;
+    display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    z-index: 999;
 }
 
 .logo {
@@ -29,35 +33,117 @@ nav {
 .nav-list {
     display: flex;
     gap: 32px;
-    list-style:none;
+    list-style: none;
 }
 
 .nav-list a {
     font-size: 18px;
-    color: black;
+    color: #fff;
     padding-block: 16px;
+}
+
+.hero {
+    height: calc(100vh - 70px);
+    background: center / cover no-repeat url("./bg.jpg");
 }
 
 .hamburger {
     display: none;
     border: none;
     background: none;
-    border-top: 3px solid  black;
+    border-top: 3px solid #fff;
     cursor: pointer;
 }
 
-.hamburger::before,
-.hamburger::after {
-    content:" ";
+.hamburger::after,
+.hamburger::before {
+    content: " ";
     display: block;
     width: 30px;
     height: 3px;
-    background-color: black;
+    background: #fff;
     margin-top: 5px;
+    position: relative;
+    transition: 0.3s;
+}
+
+@media (max-width: 750px) {
+    .hamburger {
+        display: block;
+        z-index: 1;
+    }
+
+    .nav-list {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgb(160, 151, 151);
+        clip-path: circle(100px at 90% -15%);
+        transition: 1s ease-out;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        gap: 0;
+        pointer-events: none;
+    }
+
+    .nav-list a {
+        font-size: 24px;
+        opacity: 0;
+    }
+
+    .nav-list li:nth-child(1) a {
+        transition: 0.5s 0.2s;
+    }
+
+    .nav-list li:nth-child(2) a {
+        transition: 0.5s 0.4s;
+    }
+
+    .nav-list li:nth-child(3) a {
+        transition: 0.5s 0.6s;
+    }
+
+    .nav-list li:nth-child(4) a {
+        transition: 0.5s 0.8s;
+    }
+
+    .nav-list li:nth-child(5) a {
+        transition: 0.5s 1s;
+    }
+
+    /* Estilos ativos */
+
+    .nav.active .nav-list {
+        clip-path: circle(1500px at 90% -15%);
+        pointer-events: all;
+    }
+
+    .nav.active .nav-list a {
+        opacity: 1;
+    }
+
+    .nav.active .hamburger {
+        position: fixed;
+        top: 26px;
+        right: 16px;
+        border-top-color: transparent;
+    }
+
+    .nav.active .hamburger::before {
+        transform: rotate(135deg);
+    }
+
+    .nav.active .hamburger::after {
+        transform: rotate(-135deg);
+        top: -7px;
+    }
 }
 
 body {
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     background-image: url('../img/Logo_Final.png');
     background-repeat: no-repeat;
     background-color: rgb(41, 35, 35);
@@ -68,13 +154,75 @@ body {
     margin: auto;
 }
 
-div {
-    background-color: rgb(160, 151, 151);
-    position: absolute;
+#loginBtn {
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 80px;
-    border-radius: 15px;
+    background-color: rgb(160, 151, 151);
     color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    z-index: 9999;
+    display: block;
+}
+
+@media (max-width: 750px) {
+    .nav.active #loginBtn {
+        display: none;
+    }
+}
+
+#loginDiv {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 40px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 80%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+#loginDiv.active {
+    display: block;
+}
+
+#loginDiv h1 {
+    margin-bottom: 20px;
+}
+
+#loginDiv input[type="text"],
+#loginDiv input[type="password"],
+#loginDiv button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#loginDiv button {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#closeBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #6c757d;
 }
