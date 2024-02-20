@@ -13,6 +13,11 @@ loginBtn.addEventListener("click", () => {
     loginDiv.style.display = "block";
 });
 
+closeBtn.style.width = "29px";
+closeBtn.style.height = "29px";
+closeBtn.style.right = "-110px"; // Move o botão 10px para a direita
+
+
 closeBtn.addEventListener("click", () => {
     // Ocultando a div de login
     loginDiv.style.display = "none";
