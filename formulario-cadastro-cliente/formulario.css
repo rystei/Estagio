@@ -1,13 +1,13 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-image: url('../img/Logo_Final.png');
-    background-repeat: no-repeat;
-    background-color: rgb(41, 35, 35);
-    background-position: center center;
-    background-size: 50%;
-    height: 100vh;
-    display: block;
-    margin: auto;
+    font-family: Arial, Helvetica, sans-serif; /* Define a família de fontes para o corpo do texto */
+    background-image: url('../img/Logo_Final.png'); /* Define uma imagem de fundo */
+    background-repeat: no-repeat; /* Evita a repetição da imagem de fundo */
+    background-color: rgb(41, 35, 35); /* Define uma cor de fundo */
+    background-position: center center; /* Centraliza a posição da imagem de fundo */
+    background-size: 50%; /* Define o tamanho da imagem de fundo */
+    height: 100vh; /* Define a altura da página */
+    display: block; /* Define a exibição como bloco */
+    margin: auto; /* Centraliza o conteúdo horizontalmente */
 }
 
 .box {
