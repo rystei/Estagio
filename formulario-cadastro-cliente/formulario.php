@@ -41,8 +41,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fórmulário de cadastro</title>
     <link rel="stylesheet" href="formulario.css">
+    <link rel="stylesheet" href="../navbar/nav.css">
+    <script src="../navbar/nav.js" defer></script>
 </head>
 <body>
+<?php include '../navbar/nav.html'; ?>
     <div class="box">
         <form action="formulario.php" method="POST">
             <fieldset>

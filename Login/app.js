@@ -15,7 +15,7 @@ loginBtn.addEventListener("click", () => {
 
 closeBtn.style.width = "29px";
 closeBtn.style.height = "29px";
-closeBtn.style.right = "-110px"; // Move o botão 10px para a direita
+closeBtn.style.right = "-10px"; // Move o botão 10px para a direita
 
 
 closeBtn.addEventListener("click", () => {

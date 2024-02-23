@@ -13,10 +13,10 @@ body {
 .box {
     color: white;
     position: absolute;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color:  rgb(160, 151, 151);
+    background-color: rgb(160, 151, 151);
     padding: 15px;
     border-radius: 15px;
     width: 25%;
